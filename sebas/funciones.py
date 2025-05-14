@@ -2,37 +2,45 @@ viaje = []
 
 def seleccionar_destino ():
     while True:
-        Destino_disponible = int(input("""
-        * Viajes disponibles *
-        1. Medellin - España
-        2. Medellin - Bogota
-        
-        !!Selecciona una opcion!!
-        
-        """))
-        if Destino_disponible == 1: 
+        tipo_viaje = input("""
+        ==============================
+        ==============================
+        1. Internacional
+        2. Nacional
+        ==============================
+        ==============================
+        * Selecciona una opcion 1 o 2 * \n
+        """)
+
+        if tipo_viaje == 1: 
             print("="*30)
-            print("Viaje disponible: \n Septiembre 26 : Hora -> 17:50 ")
+            print("!!! Viaje Internacional disponible !!! \n Medellin - España \n")
+            print("!!! Fecha -> Septiembre 26 !!!: \n Hora -> 17:50 ")
             usuario = input("Quieres resevar este viaje? / si/no \n ")
             if usuario == "si":
                 print("Tu viaje fue reservado con exito")
                 viaje.append(usuario)
-                break
+                print(viaje)
+                continue
             else:
                 print("="*30)
                 break
                 
             
-        elif Destino_disponible == 2:
-            print("Viaje disponible  \n Octubre 29 : Hora -> 20:00 ")
+        elif tipo_viaje == 2:
+            print("="*30)
+            print("!!! Viaje nacional disponible !!!  \n Medellin - Bogota ")
+            print("!!! Fecha -> Octubre 29 !!! \n Hora -> 20:00 ")
             usuario2 = input("Quieres reservar este viaje? / si/no \n")
             if usuario2 == "si":
                 print("Tu viaje fue reservado con exito")
                 print("="*30)
                 viaje.append(usuario2)
-                break
+                print(viaje)
+                continue
             else:
-                print("Tu viaje es: ",viaje)
+                print("="*30)
+                break
                 
             
 def capacidad_viaje ():
@@ -63,3 +71,8 @@ def capacidad_viaje ():
                 viaje.append(usuario4)
                 print("Peso admitidido")
                 break
+
+def costo_viaje ():
+    while True:
+        costo = ("""
+ """)
