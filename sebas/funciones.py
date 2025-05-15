@@ -1,46 +1,59 @@
 viaje = []
-
+contador = 0
 def seleccionar_destino ():
     while True:
-        tipo_viaje = input("""
+        tipo_vuelo = int(input("""
         ==============================
         ==============================
         1. Internacional
         2. Nacional
         ==============================
         ==============================
-        * Selecciona una opcion 1 o 2 * \n
-        """)
+        Selecciona una opcion en numero \n
+        """))
 
-        if tipo_viaje == 1: 
+        if tipo_vuelo == 1: 
             print("="*30)
             print("!!! Viaje Internacional disponible !!! \n Medellin - España \n")
-            print("!!! Fecha -> Septiembre 26 !!!: \n Hora -> 17:50 ")
+            print("!!! Fecha -> Septiembre 26 !!!: \n  Hora -> 17:50 Hrs")
+            categoria = ("!!! Viaje Internacional disponible !!! \n Medellin - España \n")
+            fecha = ("!!! Fecha -> Septiembre 26 !!!: \n  Hora -> 17:50 Hrs ")
             usuario = input("Quieres resevar este viaje? / si/no \n ")
             if usuario == "si":
                 print("Tu viaje fue reservado con exito")
-                viaje.append(usuario)
-                print(viaje)
-                continue
+                vuelo = {
+                        "Categoria" : categoria,
+                        "Intinerario" : fecha
+                        }
+                for i , n in vuelo.items():
+                    print(i,n)
+                break
             else:
                 print("="*30)
-                break
+                continue
                 
             
-        elif tipo_viaje == 2:
+        elif tipo_vuelo == 2:
             print("="*30)
-            print("!!! Viaje nacional disponible !!!  \n Medellin - Bogota ")
-            print("!!! Fecha -> Octubre 29 !!! \n Hora -> 20:00 ")
+            print("!!! Viaje nacional disponible !!!  \n Medellin - Bogota")
+            print("!!! Fecha -> Octubre 29 !!! \n Hora -> 20:00 Hrs")
+            categoria1 = ("!!! Viaje nacional disponible !!!  \n Medellin - Bogota ")
+            fecha2 = ("!!! Fecha -> Octubre 29 !!! \n Hora -> 20:00 Hrs ")
             usuario2 = input("Quieres reservar este viaje? / si/no \n")
             if usuario2 == "si":
                 print("Tu viaje fue reservado con exito")
                 print("="*30)
                 viaje.append(usuario2)
-                print(viaje)
-                continue
+                vuelo2 = { 
+                          "Categoria": categoria1,
+                          "Intinerario" : fecha2}
+                
+                for i, n in vuelo2.items():
+                    print(vuelo2)
+                break
             else:
                 print("="*30)
-                break
+                continue
                 
             
 def capacidad_viaje ():
@@ -60,19 +73,34 @@ def capacidad_viaje ():
                 print("Peso no aceptado")
             else:
                 viaje.append(usuario3)
-                print("Peso admitidido")
+                print("Peso admitidido \n valor -> 120.000 $")
                 break
         elif carga == 2:
             print("Equipaje de bodega seleccionado, peso maximo 50 kg")
-            usuario4 = input("Ingresa el peso de tu equipaje \n ")
+            usuario4 = int(input("Ingresa el peso de tu equipaje \n "))
             if usuario4 > 50:
                 print("Peso no aceptado")
+                continue
             else:
                 viaje.append(usuario4)
-                print("Peso admitidido")
+                print("Peso admitidido \n valor -> 270.000 $")
                 break
 
-def costo_viaje ():
+def comprar_boleto (contador, viaje):
     while True:
-        costo = ("""
- """)
+        print("Por favor ingresa los siguientes datos \n ")
+        num_id = int(input("Por favor ingresa tu numero de identificacion -> : \n"))
+        comprador = input("Por favor ingresa tu nombre -> : \n")
+        apellido = input("Por favor ingresa tu apellido -> :\n")
+        
+        viaje[num_id] = {
+            "numero_boleto" : contador,
+            "Id" : num_id,
+            "Comprador" : comprador,
+            "Apellido" : apellido
+            }
+        
+        for n, m in viaje.items():
+            print( n ,m)
+        
+        contador = contador+1
